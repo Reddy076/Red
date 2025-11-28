@@ -1,4 +1,3 @@
-import { memo } from 'react'
 import MultiSelectDropdown from '../../common/MultiSelectDropdown'
 import Icon from '../../common/Icon'
 
@@ -12,7 +11,7 @@ import Icon from '../../common/Icon'
  * @param {string} searchQuery - Current search query
  * @param {Function} onSearchChange - Handle search input change
  */
-const BallotFilters = memo(({ 
+const BallotFilters = ({ 
   filterCorporation, 
   setFilterCorporation, 
   searchQuery, 
@@ -42,8 +41,6 @@ const BallotFilters = memo(({
       </div>
     </div>
   )
-})
-
-BallotFilters.displayName = 'BallotFilters'
+}
 
 export default BallotFilters

@@ -1,4 +1,3 @@
-import { memo } from 'react'
 import Icon from '../../common/Icon'
 
 /**
@@ -8,7 +7,7 @@ import Icon from '../../common/Icon'
  * 
  * @param {Function} onCreateBallot - Handle create ballot button click
  */
-const BallotHeader = memo(({ onCreateBallot }) => {
+const BallotHeader = ({ onCreateBallot }) => {
   return (
     <div className="content-header">
       <div className="header-row">
@@ -27,8 +26,6 @@ const BallotHeader = memo(({ onCreateBallot }) => {
       </div>
     </div>
   )
-})
-
-BallotHeader.displayName = 'BallotHeader'
+}
 
 export default BallotHeader

@@ -1,4 +1,3 @@
-import { memo } from 'react'
 import { BALLOT_STEPS } from '../../../../constants'
 import Icon from '../../../common/Icon'
 
@@ -35,6 +34,4 @@ const ProgressSteps = ({ currentStep }) => (
   </div>
 )
 
-ProgressSteps.displayName = 'ProgressSteps'
-
-export default memo(ProgressSteps)
+export default ProgressSteps

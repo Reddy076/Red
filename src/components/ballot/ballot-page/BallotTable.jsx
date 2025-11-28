@@ -1,4 +1,3 @@
-import { memo } from 'react'
 import Icon from '../../common/Icon'
 import BallotTableRow from './BallotTableRow'
 
@@ -13,7 +12,7 @@ import BallotTableRow from './BallotTableRow'
  * @param {Function} onRemind - Handle remind button click
  * @param {Function} formatDate - Format date function
  */
-const BallotTable = memo(({ 
+const BallotTable = ({ 
   ballots, 
   sortConfig, 
   onSort, 
@@ -82,8 +81,6 @@ const BallotTable = memo(({
       </table>
     </div>
   )
-})
-
-BallotTable.displayName = 'BallotTable'
+}
 
 export default BallotTable

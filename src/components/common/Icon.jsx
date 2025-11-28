@@ -147,6 +147,13 @@ const Icon = ({ name, size = 20, strokeWidth = 2, className = '', ...props }) =>
         <polyline points="3 7 12 13 21 7"></polyline>
       </svg>
     ),
+    info: (
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} className={className} {...props}>
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="16" x2="12" y2="12"></line>
+        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+      </svg>
+    ),
     settings: (
       <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} className={className} {...props}>
         <circle cx="12" cy="12" r="3"></circle>

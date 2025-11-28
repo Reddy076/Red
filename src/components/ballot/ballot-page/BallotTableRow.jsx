@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react'
+import { memo } from 'react'
 
 /**
  * BallotTableRow Component
@@ -10,16 +10,7 @@ import { memo, useCallback } from 'react'
  * @param {Function} formatDate - Format date function
  */
 const BallotTableRow = memo(({ ballot, onRemind, formatDate }) => {
-  /**
-   * Handle remind button click
-   */
-  const handleRemindClick = useCallback(() => {
-    try {
-      onRemind(ballot)
-    } catch (error) {
-      console.error('Error handling remind click:', error)
-    }
-  }, [ballot, onRemind])
+  const handleRemindClick = () => onRemind(ballot)
 
   return (
     <tr key={ballot.id}>
@@ -63,7 +54,5 @@ const BallotTableRow = memo(({ ballot, onRemind, formatDate }) => {
     </tr>
   )
 })
-
-BallotTableRow.displayName = 'BallotTableRow'
 
 export default BallotTableRow

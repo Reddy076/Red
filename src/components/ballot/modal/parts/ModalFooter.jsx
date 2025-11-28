@@ -1,4 +1,3 @@
-import { memo } from 'react'
 import Icon from '../../../common/Icon'
 
 /**
@@ -49,6 +48,4 @@ const ModalFooter = ({
   </div>
 )
 
-ModalFooter.displayName = 'ModalFooter'
-
-export default memo(ModalFooter)
+export default ModalFooter

@@ -1,13 +1,13 @@
-import { useState, useCallback, useMemo, lazy, Suspense, memo } from 'react'
+import { useState, useCallback, useMemo, memo } from 'react'
 import BallotHeader from './BallotHeader'
 import BallotFilters from './BallotFilters'
 import BallotTabs from './BallotTabs'
 import BallotTable from './BallotTable'
 import MotionsView from './MotionsView'
+import BallotCreationModal from '../modal/BallotCreationModal'
+import ReminderModal from '../modal/ReminderModal'
+import Toast from '../../common/Toast'
 import '../../../styles/BallotList.css'
-
-// Lazy load the modal to reduce initial bundle size
-const BallotCreationModal = lazy(() => import('../modal/BallotCreationModal'))
 
 /**
  * BallotList Component
@@ -34,7 +34,10 @@ const BallotList = memo(({ ballots, onAddBallot }) => {
   const [filterCorporation, setFilterCorporation] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isReminderModalOpen, setIsReminderModalOpen] = useState(false)
+  const [selectedBallot, setSelectedBallot] = useState(null)
   const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' })
+  const [showToast, setShowToast] = useState(false)
 
   // ============================================================================
   // EVENT HANDLERS
@@ -115,13 +118,50 @@ const BallotList = memo(({ ballots, onAddBallot }) => {
    */
   const handleRemind = useCallback((ballot) => {
     try {
-      console.log('Sending reminder for ballot:', ballot.id)
+      console.log('Opening reminder modal for ballot:', ballot.id)
+      setSelectedBallot(ballot)
+      setIsReminderModalOpen(true)
+    } catch (error) {
+      console.error('Error opening reminder modal:', error)
+      alert('Failed to open reminder modal. Please try again.')
+    }
+  }, [])
+
+  /**
+   * Handle close reminder modal
+   */
+  const handleCloseReminderModal = useCallback(() => {
+    setIsReminderModalOpen(false)
+    setSelectedBallot(null)
+  }, [])
+
+  /**
+   * Handle send reminder
+   * @param {Object} reminderData - The reminder data to send
+   */
+  const handleSendReminder = useCallback((reminderData) => {
+    try {
+      console.log('Sending reminder:', reminderData)
       // In a real app, this would trigger an API call
-      alert(`Reminder sent for: ${ballot.title}`)
+      // API call would go here
+      
+      // Close the reminder modal
+      setIsReminderModalOpen(false)
+      setSelectedBallot(null)
+      
+      // Show success toast
+      setShowToast(true)
     } catch (error) {
       console.error('Error sending reminder:', error)
       alert('Failed to send reminder. Please try again.')
     }
+  }, [])
+
+  /**
+   * Handle close toast
+   */
+  const handleCloseToast = useCallback(() => {
+    setShowToast(false)
   }, [])
 
   /**
@@ -262,15 +302,30 @@ const BallotList = memo(({ ballots, onAddBallot }) => {
 
   return (
     <>
-      {/* Ballot Creation Modal - Lazy Loaded */}
+      {/* Ballot Creation Modal */}
       {isModalOpen && (
-        <Suspense fallback={<div className="modal-loading">Loading...</div>}>
-          <BallotCreationModal 
-            isOpen={isModalOpen} 
-            onClose={handleCloseModal}
-            onSubmit={handleBallotSubmit}
-          />
-        </Suspense>
+        <BallotCreationModal 
+          isOpen={isModalOpen} 
+          onClose={handleCloseModal}
+          onSubmit={handleBallotSubmit}
+        />
+      )}
+
+      {/* Reminder Modal */}
+      <ReminderModal
+        isOpen={isReminderModalOpen}
+        onClose={handleCloseReminderModal}
+        ballot={selectedBallot}
+        onSend={handleSendReminder}
+      />
+
+      {/* Toast Notification */}
+      {showToast && (
+        <Toast
+          title="Reminder Sent"
+          message="Successfully sent reminder to 0 committee members"
+          onClose={handleCloseToast}
+        />
       )}
       
       <main className="main-content">
@@ -309,7 +364,5 @@ const BallotList = memo(({ ballots, onAddBallot }) => {
     </>
   )
 })
-
-BallotList.displayName = 'BallotList'
 
 export default BallotList

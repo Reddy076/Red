@@ -1,5 +1,3 @@
-import { memo } from 'react'
-
 /**
  * BallotTabs Component
  * 
@@ -10,7 +8,7 @@ import { memo } from 'react'
  * @param {number} activeCount - Count of active ballots
  * @param {number} closedCount - Count of closed ballots
  */
-const BallotTabs = memo(({ 
+const BallotTabs = ({ 
   activeTab, 
   onTabChange, 
   activeCount, 
@@ -41,8 +39,6 @@ const BallotTabs = memo(({
       </button>
     </div>
   )
-})
-
-BallotTabs.displayName = 'BallotTabs'
+}
 
 export default BallotTabs
