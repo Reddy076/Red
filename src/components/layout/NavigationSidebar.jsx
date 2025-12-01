@@ -1,4 +1,5 @@
 import { memo } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { USER_INFO, APP_VERSION } from '../../constants'
 import Icon from '../common/Icon'
 import '../../styles/NavigationSidebar.css'
@@ -22,19 +23,21 @@ import '../../styles/NavigationSidebar.css'
  * @param {Function} onClose - Callback to close sidebar (used on mobile)
  */
 const NavigationSidebar = memo(({ isOpen, onClose }) => {
+  const navigate = useNavigate()
+  const location = useLocation()
+
   // ============================================================================
   // EVENT HANDLERS
   // ============================================================================
 
   /**
    * Handle navigation item click
-   * @param {string} itemName - Name of the navigation item
+   * @param {string} path - Route path to navigate to
    */
-  const handleNavItemClick = (itemName) => {
+  const handleNavItemClick = (path) => {
     try {
-      console.log('Navigating to:', itemName)
-      // In a real app, this would handle routing
-      // For now, just log the action
+      console.log('Navigating to:', path)
+      navigate(path)
       
       // Close sidebar on mobile after navigation
       if (window.innerWidth <= 768 && onClose) {
@@ -43,6 +46,14 @@ const NavigationSidebar = memo(({ isOpen, onClose }) => {
     } catch (error) {
       console.error('Error handling navigation:', error)
     }
+  }
+
+  /**
+   * Check if a path is active
+   * @param {string} path - Route path to check
+   */
+  const isActive = (path) => {
+    return location.pathname === path
   }
 
   // ============================================================================
@@ -70,19 +81,19 @@ const NavigationSidebar = memo(({ isOpen, onClose }) => {
         <div className="nav-section">
           <h4 className="nav-section-title">Pod View</h4>
           <ul className="nav-list">
-            <li className="nav-item" onClick={() => handleNavItemClick('Pod Overview')}>
+            <li className={`nav-item ${isActive('/pod/overview') ? 'active' : ''}`} onClick={() => handleNavItemClick('/pod/overview')}>
               <Icon name="grid" className="nav-icon" size={20} />
               <span>Pod Overview</span>
             </li>
-            <li className="nav-item active" onClick={() => handleNavItemClick('All Ballots')}>
+            <li className={`nav-item ${isActive('/ballots') ? 'active' : ''}`} onClick={() => handleNavItemClick('/ballots')}>
               <Icon name="ballot" className="nav-icon" size={20} />
               <span>All Ballots</span>
             </li>
-            <li className="nav-item" onClick={() => handleNavItemClick('All Discussions')}>
+            <li className="nav-item" onClick={() => handleNavItemClick('/discussions')}>
               <Icon name="message" className="nav-icon" size={20} />
               <span>All Discussions</span>
             </li>
-            <li className="nav-item" onClick={() => handleNavItemClick('All Key Dates')}>
+            <li className="nav-item" onClick={() => handleNavItemClick('/key-dates')}>
               <Icon name="calendar" className="nav-icon" size={20} />
               <span>All Key Dates</span>
             </li>

@@ -1,7 +1,9 @@
 import { useState, useCallback, useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import NavigationSidebar from './components/layout/NavigationSidebar'
 import AppHeader from './components/layout/AppHeader'
-import BallotList from './components/ballot/ballot-page/BallotList'
+import PodOverview from './pages/PodOverview'
+import Ballots from './pages/Ballots'
 import { DEFAULT_CORPORATION } from './constants'
 import { DEFAULT_BALLOTS } from './utils/defaultValues'
 import './styles/App.css'
@@ -120,24 +122,30 @@ function App() {
   // ============================================================================
 
   return (
-    <div className="app">
-      <NavigationSidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
-      {isSidebarOpen && (
-        <div 
-          className="sidebar-overlay" 
-          onClick={() => setIsSidebarOpen(false)}
-          aria-hidden="true"
-        />
-      )}
-      <div className={`main-wrapper ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
-        <AppHeader 
-          selectedCorporation={selectedCorporation}
-          setSelectedCorporation={setSelectedCorporation}
-          toggleSidebar={toggleSidebar}
-        />
-        <BallotList ballots={ballots} onAddBallot={handleAddBallot} />
+    <Router>
+      <div className="app">
+        <NavigationSidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+        {isSidebarOpen && (
+          <div 
+            className="sidebar-overlay" 
+            onClick={() => setIsSidebarOpen(false)}
+            aria-hidden="true"
+          />
+        )}
+        <div className={`main-wrapper ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
+          <AppHeader 
+            selectedCorporation={selectedCorporation}
+            setSelectedCorporation={setSelectedCorporation}
+            toggleSidebar={toggleSidebar}
+          />
+          <Routes>
+            <Route path="/" element={<Navigate to="/ballots" replace />} />
+            <Route path="/pod/overview" element={<PodOverview />} />
+            <Route path="/ballots" element={<Ballots ballots={ballots} onAddBallot={handleAddBallot} />} />
+          </Routes>
+        </div>
       </div>
-    </div>
+    </Router>
   )
 }
 
