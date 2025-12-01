@@ -233,13 +233,13 @@ const PodOverview = memo(() => {
       {/* Other Tabs */}
       {activeTab === 'ballots' && (
         <div className="tab-placeholder">
-          <p>Ballots view coming soon...</p>
+          <p></p>
         </div>
       )}
 
       {activeTab === 'discussions' && (
         <div className="tab-placeholder">
-          <p>Discussions view coming soon...</p>
+          <p></p>
         </div>
       )}
 
