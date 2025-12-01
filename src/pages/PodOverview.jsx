@@ -1,5 +1,7 @@
 import { useState, memo } from 'react'
 import KeyDatesView from './KeyDatesView'
+import BallotList from '../components/ballot/ballot-page/BallotList'
+import { DEFAULT_BALLOTS } from '../utils/defaultValues'
 import '../styles/PodOverview.css'
 
 /**
@@ -15,6 +17,40 @@ import '../styles/PodOverview.css'
  */
 const PodOverview = memo(() => {
   const [activeTab, setActiveTab] = useState('summary')
+  const [ballots, setBallots] = useState(DEFAULT_BALLOTS)
+
+  /**
+   * Handle adding a new ballot
+   * @param {Object} ballotData - The ballot data to add
+   */
+  const handleAddBallot = (ballotData) => {
+    try {
+      if (!ballotData || !ballotData.title || !ballotData.corporation) {
+        console.error('Invalid ballot data:', ballotData)
+        alert('Failed to create ballot: Missing required fields')
+        return
+      }
+
+      const newBallot = {
+        id: Date.now(),
+        corporation: ballotData.corporation,
+        title: ballotData.title,
+        status: 'Active',
+        participation: 0,
+        deadline: ballotData.deadlineDate,
+        createdAt: new Date().toISOString(),
+        description: ballotData.description,
+        motions: ballotData.motions || [],
+        attachments: ballotData.attachments || []
+      }
+
+      setBallots(prev => [...prev, newBallot])
+      console.log('Ballot created successfully:', newBallot)
+    } catch (error) {
+      console.error('Error creating ballot:', error)
+      alert('An error occurred while creating the ballot. Please try again.')
+    }
+  }
 
   // Mock data for demonstration
   const stats = {
@@ -234,13 +270,12 @@ const PodOverview = memo(() => {
       {/* Key Dates Tab */}
       {activeTab === 'key-dates' && <KeyDatesView />}
 
-      {/* Other Tabs */}
+      {/* Ballots Tab */}
       {activeTab === 'ballots' && (
-        <div className="tab-placeholder">
-          <p></p>
-        </div>
+        <BallotList ballots={ballots} onAddBallot={handleAddBallot} hideHeader={true} />
       )}
 
+      {/* Discussions Tab */}
       {activeTab === 'discussions' && (
         <div className="tab-placeholder">
           <p></p>

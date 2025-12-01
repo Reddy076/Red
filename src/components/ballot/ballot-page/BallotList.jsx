@@ -7,6 +7,7 @@ import MotionsView from './MotionsView'
 import BallotCreationModal from '../modal/BallotCreationModal'
 import ReminderModal from '../modal/ReminderModal'
 import Toast from '../../common/Toast'
+import Icon from '../../common/Icon'
 import '../../../styles/BallotList.css'
 
 /**
@@ -24,8 +25,9 @@ import '../../../styles/BallotList.css'
  * 
  * @param {Array<Object>} ballots - Array of ballot objects
  * @param {Function} onAddBallot - Callback to add a new ballot
+ * @param {boolean} hideHeader - Whether to hide the page header (for embedded use)
  */
-const BallotList = memo(({ ballots, onAddBallot }) => {
+const BallotList = memo(({ ballots, onAddBallot, hideHeader = false }) => {
   // ============================================================================
   // STATE MANAGEMENT
   // ============================================================================
@@ -328,9 +330,23 @@ const BallotList = memo(({ ballots, onAddBallot }) => {
         />
       )}
       
-      <main className="main-content">
+      <main className={`main-content ${hideHeader ? 'no-header' : ''}`}>
         {/* Page Header */}
-        <BallotHeader onCreateBallot={handleOpenModal} />
+        {!hideHeader && <BallotHeader onCreateBallot={handleOpenModal} />}
+
+        {/* Create Ballot Button for embedded view */}
+        {hideHeader && (
+          <div className="embedded-header">
+            <button 
+              className="create-ballot-btn" 
+              onClick={handleOpenModal}
+              aria-label="Create new ballot"
+            >
+              <Icon name="plus" size={20} />
+              Create Ballot
+            </button>
+          </div>
+        )}
 
         {/* Filters Section */}
         <BallotFilters

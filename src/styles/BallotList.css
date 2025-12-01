@@ -5,6 +5,16 @@
   overflow-y: auto;
 }
 
+.main-content.no-header {
+  padding: 0;
+}
+
+.embedded-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+
 .content-header {
   margin-bottom: 24px;
 }
@@ -67,7 +77,11 @@
 }
 
 .filters-section {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+}
+
+.main-content.no-header .filters-section {
+  margin-bottom: 20px;
 }
 
 .filter-row {
@@ -139,10 +153,14 @@
 .tabs-section {
   display: inline-flex;
   gap: 4px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   background-color: hsl(var(--muted) / 1);
   padding: 4px;
   border-radius: 0.375rem;
+}
+
+.main-content.no-header .tabs-section {
+  margin-bottom: 20px;
 }
 
 .tab {
