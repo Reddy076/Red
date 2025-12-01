@@ -159,68 +159,72 @@ const PodOverview = memo(() => {
         {/* Owners Corporations Table */}
         <section className="table-section">
           <h2 className="table-section-title">Owners Corporations</h2>
-          <div className="pod-table-card">
-            <table className="pod-table">
-              <colgroup>
-                <col style={{ width: '35%' }} />
-                <col style={{ width: '18%' }} />
-                <col style={{ width: '22%' }} />
-                <col style={{ width: '25%' }} />
-              </colgroup>
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th style={{ textAlign: 'center' }}>Active Ballots</th>
-                  <th style={{ textAlign: 'center' }}>Open Discussions</th>
-                  <th>Next Date</th>
-                </tr>
-              </thead>
-              <tbody>
-                {ownersCorps.map((corp, index) => (
-                  <tr key={index}>
-                    <td className="corp-name">{corp.name}</td>
-                    <td style={{ textAlign: 'center' }}><span className="number-link">{corp.activeBallots}</span></td>
-                    <td style={{ textAlign: 'center' }}><span className="number-link">{corp.openDiscussions}</span></td>
-                    <td className="date-text">{corp.nextDate}</td>
+          <div className="table-wrapper">
+            <div className="pod-table-card">
+              <table className="pod-table">
+                <colgroup>
+                  <col style={{ width: '35%' }} />
+                  <col style={{ width: '18%' }} />
+                  <col style={{ width: '22%' }} />
+                  <col style={{ width: '25%' }} />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th style={{ textAlign: 'center' }}>Active Ballots</th>
+                    <th style={{ textAlign: 'center' }}>Open Discussions</th>
+                    <th>Next Date</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {ownersCorps.map((corp, index) => (
+                    <tr key={index}>
+                      <td className="corp-name">{corp.name}</td>
+                      <td style={{ textAlign: 'center' }}><span className="number-link">{corp.activeBallots}</span></td>
+                      <td style={{ textAlign: 'center' }}><span className="number-link">{corp.openDiscussions}</span></td>
+                      <td className="date-text">{corp.nextDate}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </section>
 
         {/* Urgent Items Table */}
         <section className="table-section">
           <h2 className="table-section-title">Urgent Items</h2>
-          <div className="pod-table-card">
-            <table className="pod-table">
-              <colgroup>
-                <col style={{ width: '18%' }} />
-                <col style={{ width: '32%' }} />
-                <col style={{ width: '30%' }} />
-                <col style={{ width: '20%' }} />
-              </colgroup>
-              <thead>
-                <tr>
-                  <th>Type</th>
-                  <th>Corporation</th>
-                  <th>Description</th>
-                  <th>Deadline</th>
-                </tr>
-              </thead>
-              <tbody>
-                {urgentItems.map((item, index) => (
-                  <tr key={index}>
-                    <td>
-                      <span className="type-badge">{item.type}</span>
-                    </td>
-                    <td className="corp-secondary">{item.corporation}</td>
-                    <td>{item.description}</td>
-                    <td className="date-link">{item.deadline}</td>
+          <div className="table-wrapper">
+            <div className="pod-table-card">
+              <table className="pod-table">
+                <colgroup>
+                  <col style={{ width: '18%' }} />
+                  <col style={{ width: '32%' }} />
+                  <col style={{ width: '30%' }} />
+                  <col style={{ width: '20%' }} />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Corporation</th>
+                    <th>Description</th>
+                    <th>Deadline</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {urgentItems.map((item, index) => (
+                    <tr key={index}>
+                      <td>
+                        <span className="type-badge">{item.type}</span>
+                      </td>
+                      <td className="corp-secondary">{item.corporation}</td>
+                      <td>{item.description}</td>
+                      <td className="date-link">{item.deadline}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </section>
       </div>

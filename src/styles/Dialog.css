@@ -10,6 +10,10 @@
   animation: fadeIn 0.15s ease-out;
 }
 
+.dark-mode .dialog-overlay {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
 .dialog-overlay[data-state='closed'] {
   animation: fadeOut 0.15s ease-in;
 }
@@ -222,4 +226,44 @@
 
 .dialog-content::-webkit-scrollbar-thumb:hover {
   background: var(--text-secondary);
+}
+
+/* ===== DARK MODE STYLES ===== */
+.dark-mode .dialog-content {
+  background-color: #1F2937;
+  border-color: #374151;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .dialog-title {
+  color: #F9FAFB;
+}
+
+.dark-mode .dialog-description {
+  color: #9CA3AF;
+}
+
+.dark-mode .dialog-close-button {
+  color: #9CA3AF;
+}
+
+.dark-mode .dialog-close-button:hover {
+  background-color: #374151;
+  color: #E5E7EB;
+}
+
+.dark-mode .dialog-close-button:focus {
+  outline-color: #60A5FA;
+}
+
+.dark-mode .dialog-content::-webkit-scrollbar-track {
+  background: #374151;
+}
+
+.dark-mode .dialog-content::-webkit-scrollbar-thumb {
+  background: #4B5563;
+}
+
+.dark-mode .dialog-content::-webkit-scrollbar-thumb:hover {
+  background: #6B7280;
 }

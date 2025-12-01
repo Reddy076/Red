@@ -61,3 +61,16 @@
     width: 100%;
   }
 }
+
+/* Dark Mode */
+.dark-mode .app {
+  background-color: #111827;
+}
+
+.dark-mode .main-wrapper {
+  background-color: #111827;
+}
+
+.dark-mode .sidebar-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+}

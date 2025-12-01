@@ -404,3 +404,139 @@
     padding: 12px 16px;
   }
 }
+
+/* ===== DARK MODE STYLES ===== */
+.dark-mode .reminder-modal-container {
+  background-color: #1F2937;
+}
+
+.dark-mode .reminder-modal-title {
+  color: #F9FAFB;
+}
+
+.dark-mode .reminder-modal-description {
+  color: #9CA3AF;
+}
+
+.dark-mode .reminder-modal-close-btn {
+  color: #9CA3AF;
+}
+
+.dark-mode .reminder-modal-close-btn:hover {
+  background-color: #374151;
+  color: #E5E7EB;
+}
+
+.dark-mode .reminder-info-box {
+  background-color: #374151;
+  border-color: #4B5563;
+  color: #E5E7EB;
+}
+
+.dark-mode .reminder-info-box svg {
+  color: #E5E7EB;
+}
+
+.dark-mode .form-label {
+  color: #F9FAFB;
+}
+
+.dark-mode .custom-select-button {
+  background-color: #374151;
+  border-color: #4B5563;
+  color: #E5E7EB;
+}
+
+.dark-mode .custom-select-button:hover {
+  border-color: #6B7280;
+}
+
+.dark-mode .custom-select-button:focus {
+  border-color: #9CA3AF;
+  box-shadow: 0 0 0 2px rgba(156, 163, 175, 0.2);
+}
+
+.dark-mode .custom-select-icon {
+  color: #9CA3AF;
+}
+
+.dark-mode .custom-select-dropdown {
+  background-color: #374151;
+  border-color: #4B5563;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .custom-select-option {
+  color: #E5E7EB;
+}
+
+.dark-mode .custom-select-option:hover {
+  background-color: #4B5563;
+}
+
+.dark-mode .custom-select-option.selected {
+  background-color: #4B5563;
+  color: #F9FAFB;
+}
+
+.dark-mode .select-check-icon {
+  color: #60A5FA;
+}
+
+.dark-mode .reminder-input {
+  background-color: #374151;
+  border-color: #4B5563;
+  color: #E5E7EB;
+}
+
+.dark-mode .reminder-input:focus {
+  border-color: #9CA3AF;
+  box-shadow: 0 0 0 2px rgba(156, 163, 175, 0.2);
+}
+
+.dark-mode .reminder-textarea {
+  background-color: #374151;
+  border-color: #4B5563;
+  color: #E5E7EB;
+}
+
+.dark-mode .reminder-textarea:focus {
+  border-color: #9CA3AF;
+  box-shadow: 0 0 0 2px rgba(156, 163, 175, 0.2);
+}
+
+.dark-mode .ballot-details-section h3 {
+  color: #9CA3AF;
+}
+
+.dark-mode .ballot-details-section li {
+  color: #E5E7EB;
+}
+
+.dark-mode .ballot-details-section li strong {
+  color: #F9FAFB;
+}
+
+.dark-mode .reminder-modal-footer {
+  background-color: rgba(55, 65, 81, 0.3);
+  border-top-color: #374151;
+}
+
+.dark-mode .reminder-cancel-btn {
+  background-color: #374151;
+  color: #E5E7EB;
+  border-color: #4B5563;
+}
+
+.dark-mode .reminder-cancel-btn:hover {
+  background-color: #4B5563;
+}
+
+.dark-mode .reminder-send-btn {
+  background-color: #F9FAFB;
+  color: #1F2937;
+}
+
+.dark-mode .reminder-send-btn:hover {
+  background-color: #E5E7EB;
+}

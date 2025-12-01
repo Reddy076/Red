@@ -353,3 +353,134 @@
     min-width: 800px;
   }
 }
+
+/* ===== DARK MODE STYLES ===== */
+.dark-mode .custom-dropdown-trigger {
+  background-color: #1F2937;
+  border-color: #4B5563;
+  color: #F9FAFB;
+}
+
+.dark-mode .custom-dropdown-trigger:hover {
+  background-color: #374151;
+  border-color: #6B7280;
+}
+
+.dark-mode .placeholder {
+  color: #9CA3AF;
+}
+
+.dark-mode .selected-tag {
+  background-color: #374151;
+  border-color: #4B5563;
+  color: #E5E7EB;
+}
+
+.dark-mode .selection-counter {
+  background-color: #374151;
+  border-color: #4B5563;
+  color: #E5E7EB;
+}
+
+.dark-mode .remove-tag {
+  color: #9CA3AF;
+}
+
+.dark-mode .remove-tag:hover {
+  color: #E5E7EB;
+}
+
+.dark-mode .clear-all {
+  color: #9CA3AF;
+}
+
+.dark-mode .clear-all:hover {
+  color: #E5E7EB;
+  background-color: #374151;
+}
+
+.dark-mode .chevron-icon {
+  color: #9CA3AF;
+}
+
+.dark-mode .custom-dropdown-menu {
+  background-color: #1F2937;
+  border-color: #4B5563;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .dropdown-search {
+  border-bottom-color: #374151;
+}
+
+.dark-mode .dropdown-search .search-icon {
+  color: #9CA3AF;
+}
+
+.dark-mode .dropdown-search-input {
+  color: #F9FAFB;
+}
+
+.dark-mode .dropdown-search-input::placeholder {
+  color: #6B7280;
+}
+
+.dark-mode .dropdown-option {
+  color: #E5E7EB;
+}
+
+.dark-mode .dropdown-option:hover {
+  background-color: #374151;
+}
+
+.dark-mode .checkbox-custom {
+  background-color: #374151;
+  border-color: #6B7280;
+}
+
+.dark-mode .checkbox-input:checked + .checkbox-custom {
+  background-color: #F9FAFB;
+  border-color: #F9FAFB;
+}
+
+.dark-mode .checkbox-custom svg {
+  color: #1F2937;
+}
+
+.dark-mode .option-label {
+  color: #E5E7EB;
+}
+
+.dark-mode .no-results {
+  color: #9CA3AF;
+}
+
+.dark-mode .key-dates-table-container {
+  background: transparent;
+}
+
+.dark-mode .key-dates-table th {
+  color: #9CA3AF;
+}
+
+.dark-mode .key-dates-table tbody tr:hover {
+  background: rgba(55, 65, 81, 0.3);
+}
+
+.dark-mode .key-dates-table td {
+  color: #E5E7EB;
+  border-bottom-color: #374151;
+}
+
+.dark-mode .corp-name {
+  color: #F9FAFB;
+}
+
+.dark-mode .calendar-icon {
+  color: #9CA3AF;
+}
+
+.dark-mode .time-text,
+.dark-mode .location-text {
+  color: #9CA3AF;
+}

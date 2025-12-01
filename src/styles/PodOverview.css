@@ -380,3 +380,115 @@
   text-align: center;
   color: hsl(var(--muted-foreground));
 }
+
+/* ===== DARK MODE STYLES ===== */
+.dark-mode .pod-overview-content {
+  background: #111827;
+}
+
+.dark-mode .pod-overview-title {
+  color: #F9FAFB;
+}
+
+.dark-mode .pod-overview-subtitle {
+  color: #9CA3AF;
+}
+
+.dark-mode .pod-tabs {
+  background-color: #374151;
+}
+
+.dark-mode .pod-tab {
+  color: #9CA3AF;
+}
+
+.dark-mode .pod-tab:hover {
+  background: rgba(75, 85, 99, 0.5);
+  color: #E5E7EB;
+}
+
+.dark-mode .pod-tab.active {
+  background: #1F2937;
+  color: #F9FAFB;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 
+              0 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .stat-card {
+  background: #1F2937;
+  border-color: #374151;
+}
+
+.dark-mode .stat-label {
+  color: #9CA3AF;
+}
+
+.dark-mode .stat-icon {
+  color: #9CA3AF;
+}
+
+.dark-mode .stat-value {
+  color: #F9FAFB;
+}
+
+.dark-mode .stat-description {
+  color: #9CA3AF;
+}
+
+.dark-mode .table-section-title {
+  color: #F9FAFB;
+}
+
+.dark-mode .pod-table thead tr {
+  background: #111827;
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .pod-table th {
+  color: #9CA3AF;
+}
+
+.dark-mode .pod-table tbody tr {
+  background: #111827;
+  border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .pod-table tbody tr:hover {
+  background: rgba(55, 65, 81, 0.3);
+}
+
+.dark-mode .pod-table td {
+  color: #E5E7EB;
+}
+
+.dark-mode .corp-name {
+  color: #F9FAFB;
+}
+
+.dark-mode .number-link {
+  color: #F9FAFB;
+}
+
+.dark-mode .date-text {
+  color: #9CA3AF;
+}
+
+.dark-mode .corp-secondary {
+  color: #9CA3AF;
+}
+
+.dark-mode .type-badge {
+  color: #E5E7EB;
+}
+
+.dark-mode .date-link {
+  color: #60A5FA;
+}
+
+.dark-mode .date-link:hover {
+  color: #93C5FD;
+}
+
+.dark-mode .tab-placeholder {
+  color: #9CA3AF;
+}
